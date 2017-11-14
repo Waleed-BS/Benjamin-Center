@@ -54,9 +54,7 @@ $sum_values = array_sum($values);
 $sum_values = number_format($sum_values);
 
 if( !isset($populations) && !isset($services) && !isset($annual_costs) && !isset($total_clients) && !isset($impacts) && !isset($likelihoods) && !isset($values) ) {
-
   header("location: view_programs.php?user_id=$owner");
-
 }
 
 ?>
@@ -69,20 +67,21 @@ if( !isset($populations) && !isset($services) && !isset($annual_costs) && !isset
 <table align="center" class="one table table-bordered" style="text-align: center;">
 
   <tr class="backgroundcolored">
-    <th style="text-align: center; vertical-align: middle"> <?php echo $program_name ?> </th>
-    <th style="text-align: center; vertical-align: middle;">Service</th>
-    <th style="text-align: center; vertical-align: middle;">Impact</th>
-    <th style="text-align: center; width=200; vertical-align: middle; width: 800px;">Impact Value</th>
-    <th style="text-align: center; vertical-align: middle; width: 600px">Percent of Impact <br> Provided by Program</th>
+    <th style="text-align: center; vertical-align: middle; border-color: black; border-bottom: solid 1px"> <?php echo $program_name ?> </th>
+    <th style="text-align: center; vertical-align: middle; border-color: black; width: 1000px">Service</th>
+    <th style="text-align: center; vertical-align: middle; border-color: black; width: 3000px">Impact</th>
+    <th style="text-align: center; width=200; vertical-align: middle; border-color: black; width: 2000px;">Impact Value</th>
+    <th style="text-align: center; vertical-align: middle; width: 600px; border-color: black;">Percent of Impact <br> Provided by Program</th>
     <td
-        style="text-align: center; vertical-align: middle; width: 1000px"
-        rowspan="<?php echo 4 + sizeof($populations); ?>">
+        style="text-align: center; vertical-align: middle; width: 2000px; border-color: black;"
+        rowspan="<?php echo 4 + sizeof($populations); ?>"
+        >
       <strong>Overall Goals</strong> <br> <br> <?php echo $program_description; ?>
     </td>
   </tr>
 
   <tr>
-    <td rowspan="<?php echo 1 + sizeof($populations); ?>" class="backgroundcolored" style="border-right: none; border-top: none; border-bottom: none; vertical-align: middle;"> Adults and Family (n=<?php echo $sum_total_clients ?>)</td>
+    <td rowspan="<?php echo 1 + sizeof($populations); ?>" class="backgroundcolored" style="border-right: none; border-top: none; border-bottom: none; border-left: solid black 1px; vertical-align: middle;"> Adults and Family (n=<?php echo $sum_total_clients ?>)</td>
   </tr>
 
   <?php
@@ -94,7 +93,6 @@ if( !isset($populations) && !isset($services) && !isset($annual_costs) && !isset
 
       <tr>
         <!-- show population only once -->
-
         <td style="height: 10; vertical-align: middle;"><?php echo $services[$i] ?></td>
         <td style="vertical-align: middle"><?php echo $impacts[$i] ?></td>
         <td style="vertical-align: middle;"><?php echo "$" . number_format($values[$i]) ?></td>
@@ -106,19 +104,19 @@ if( !isset($populations) && !isset($services) && !isset($annual_costs) && !isset
     <?php
   }
   ?>
-      <tr class="backgroundcolored">
-        <td style="border-right: none; border-bottom: none;"></td>
-        <td style="border: none;"></td>
-        <td style="border: none; vertical-align: middle;">TOTAL VALUE</td>
-        <td style="border: none; vertical-align: middle;"><?php echo "$1 :" . " $" . $sum_values ?></td>
-        <td style="border: none;"></td>
+      <tr>
+        <td class="backgroundcolored" style="border-right: none; border-left: solid black 1px; border-bottom: none;"></td>
+        <td style="border: none; border-top: solid 2px; border-color: black;"></td>
+        <td style="border: none; vertical-align: middle; border-top: solid 2px; border-color: black;">TOTAL VALUE</td>
+        <td style="border: none; vertical-align: middle; border-top: solid 2px; border-color: black;"><?php echo "$1 :" . " $" . $sum_values ?></td>
+        <td style="border: none; border-top: solid 2px; border-color: black;"></td>
       </tr>
-      <tr class="backgroundcolored">
-        <td style="border-right: none; border-top:none ;"></td>
-        <td style="border: none;"></td>
-        <td style="border-top: none; border-left: none; border-right: none; vertical-align: middle;">SROI RATIO</td>
-        <td style="border: none; width: 300px; vertical-align: middle;"><?php echo $SROI_ratio . " : 1"?></td>
-        <td style="border: none;"></td>
+      <tr style="color: white;">
+        <td class="backgroundcolored" style="border-right: none; border-top: none; border-left: solid black 1px; border-bottom: solid black 1px;"></td>
+        <td style="border: none; background-color: #195994; border-bottom: solid black 1px;"></td>
+        <td style="border-top: none; border-left: none; border-right: none; vertical-align: middle; background-color: #195994; border-bottom: solid black 1px;">SROI RATIO</td>
+        <td style="border: none; width: 300px; vertical-align: middle; background-color: #195994; border-bottom: solid black 1px;"><?php echo $SROI_ratio . " : 1"?></td>
+        <td style="border: none; background-color: #195994; border-bottom: solid black 1px;"></td>
       </tr>
 
 
@@ -134,10 +132,10 @@ table.one{
   /*height: 100%;*/
   /*height: 87%;*/
   /*float: left;*/
-  width: 70%;
+  /*width: 70%;*/
   background-color: white;
   /*position: relative;*/
-  margin-left: 15%;
+  /*margin-left: 5%;*/
   /*display: inline-block;*/
   /*border: none;*/
 

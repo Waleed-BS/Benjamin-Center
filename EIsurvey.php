@@ -130,16 +130,16 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["fulltimeemployees"]) 
 
   }
 
-  $retval = mysql_query("INSERT INTO eisurvey (fulltimeemployee, parttimeemployee, fulltimecop, fulltimeoop, fulltimeoodc, fulltimeony, parttimecop, parttimeoop, parttimeoodc, parttimeony, 
+  $retval = mysql_query("INSERT INTO eisurvey (fulltimeemployee, parttimeemployee, fulltimecop, fulltimeoop, fulltimeoodc, fulltimeony, parttimecop, parttimeoop, parttimeoodc, parttimeony,
   annualexpense, row1c1, row1c2, row1c3, row1c4, row2c1, row2c2, row2c3, row2c4, row3c1, row3c2, row3c3, row3c4, row4c1, row4c2, row4c3, row4c4, row5c1, row5c2, row5c3, row5c4, row6c1,
-  row6c2, row6c3, row6c4, row7c1, row7c2, row7c3, row7c4, row8c1, row8c2, row8c3, row8c4, row9c1, row9c2, row9c3, row9c4, row10c1, row10c2, row10c3, row10c4, row11c1, row11c2, row11c3, 
-  row11c4, row12c1, row12c2, row12c3, row12c4, row13c1, row13c2, row13c3, row13c4, row14c1, row14c2, row14c3, row14c4, row15c1, row15c2, row15c3, row15c4, row16c1, row16c2, row16c3, 
+  row6c2, row6c3, row6c4, row7c1, row7c2, row7c3, row7c4, row8c1, row8c2, row8c3, row8c4, row9c1, row9c2, row9c3, row9c4, row10c1, row10c2, row10c3, row10c4, row11c1, row11c2, row11c3,
+  row11c4, row12c1, row12c2, row12c3, row12c4, row13c1, row13c2, row13c3, row13c4, row14c1, row14c2, row14c3, row14c4, row15c1, row15c2, row15c3, row15c4, row16c1, row16c2, row16c3,
   row16c4, row17c1, row17c2, row17c3, row17c4, row18c1, row18c2, row18c3, row18c4, row19c1, row19c2, row19c3, row19c4, row20c1, row20c2, row20c3, row20c4, row21c1, row21c2, row21c3,
-  row21c4, row22c1, row22c2, row22c3, row22c4, row23c1, row23c2, row23c3, row23c4, row24c1, row24c2, row24c3, row24c4, row25c1, row25c2, row25c3, row25c4, row26c1, row26c2, row26c3, 
-  row26c4, row27c1, row27c2, row27c3, row27c4, row28c1, row28c2, row28c3, row28c4, row29c1, row29c2, row29c3, row29c4, row30c1, row30c2, row30c3, row30c4, row31c1, row31c2, row31c3, 
-  row31c4, row32c1, row32c2, row32c3, row32c4, row33c1, row33c2, row33c3, row33c4, row34c1, row34c2, row34c3, row34c4, row35c1, row35c2, row35c3, row35c4, row36c1, row36c2, row36c3, 
-  row36c4, row37c1, row37c2, row37c3, row37c4, row38c1, row38c2, row38c3, row38c4, row39c1, row39c2, row39c3, row39c4, row40c1, row40c2, row40c3, row40c4, row41c1, row41c2, row41c3, 
-  row41c4, definitions) VALUES ('$fulltimeemployees', '$parttimeemployees', '$box1', '$box2', '$box3', '$box4', '$box5', '$box6', '$box7', '$box8', '$netsalarywages', 
+  row21c4, row22c1, row22c2, row22c3, row22c4, row23c1, row23c2, row23c3, row23c4, row24c1, row24c2, row24c3, row24c4, row25c1, row25c2, row25c3, row25c4, row26c1, row26c2, row26c3,
+  row26c4, row27c1, row27c2, row27c3, row27c4, row28c1, row28c2, row28c3, row28c4, row29c1, row29c2, row29c3, row29c4, row30c1, row30c2, row30c3, row30c4, row31c1, row31c2, row31c3,
+  row31c4, row32c1, row32c2, row32c3, row32c4, row33c1, row33c2, row33c3, row33c4, row34c1, row34c2, row34c3, row34c4, row35c1, row35c2, row35c3, row35c4, row36c1, row36c2, row36c3,
+  row36c4, row37c1, row37c2, row37c3, row37c4, row38c1, row38c2, row38c3, row38c4, row39c1, row39c2, row39c3, row39c4, row40c1, row40c2, row40c3, row40c4, row41c1, row41c2, row41c3,
+  row41c4, definitions) VALUES ('$fulltimeemployees', '$parttimeemployees', '$box1', '$box2', '$box3', '$box4', '$box5', '$box6', '$box7', '$box8', '$netsalarywages',
   '$row1c1', '$row1c2', '$row1c3', '$row1c4',  '$row2c1', '$row2c2', '$row2c3', '$row2c4',  '$row3c1', '$row3c2', '$row3c3', '$row3c4',  '$row4c1', '$row4c2', '$row4c3', '$row4c4',
   '$row5c1', '$row5c2', '$row5c3', '$row5c4',  '$row6c1', '$row6c2', '$row6c3', '$row6c4',  '$row7c1', '$row7c2', '$row7c3', '$row7c4',  '$row8c1', '$row8c2', '$row8c3', '$row8c4',
   '$row9c1', '$row9c2', '$row9c3', '$row9c4',  '$row10c1', '$row10c2', '$row10c3', '$row10c4',  '$row11c1', '$row11c2', '$row11c3', '$row11c4',  '$row12c1', '$row12c2', '$row12c3', '$row12c4',
@@ -162,8 +162,8 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["fulltimeemployees"]) 
 }
 ?>
 
-<div class = "container" style = "background-color: white;">
-  
+<div class = "container" style = "background-color: white; margin-top: 3%;">
+
 <form method="post" name="Form" class='my-form' action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <h3>The next set of questions asks about your employees. Please answer as best as possible, estimate when needed.</h3>
     <table class = "table table-condensed">
@@ -179,7 +179,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["fulltimeemployees"]) 
                     <div>
                         <label for="femployees">Full Time</label>
                         <input class="form-control" name="fulltimeemployees" id="fulltimeemployees" rows="1" required>
-                    </div>    
+                    </div>
                 </td>
             </tr>
         </tbody>
@@ -191,7 +191,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["fulltimeemployees"]) 
                 <th>Please enter the total number of Part Time Employees <br> (if variable, average per year) <br> Answer 1</th>
             </tr>
         </thead>
-   
+
         <tbody>
             <tr>
                 <td>
@@ -205,101 +205,101 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["fulltimeemployees"]) 
     </table>
 
     <h5>Please estimate the percent of FULL TIME who live in each geography below (responses must add to between 0% - 100%).</h5>
-    
-    
+
+
             <label class="col-xs-3 control-label">Within the City of Poughkeepsie</label>
             <div class="col-xs-4">
                 <input class="form-control" id = "box1" name="box1" required />
             </div>
-    
 
-    
+
+
             <label class="col-xs-3 control-label">In Dutchess Country, Outside of Poughkeepsie</label>
             <div class="col-xs-4 col-xs-offset-3">
                 <input class="form-control" id = "box2" name="box2" required/>
             </div>
-    
 
-        
+
+
             <label class="col-xs-3 control-label">Outside of Dutchess County in New York State</label>
             <div class="col-xs-4 col-xs-offset-3">
                 <input class="form-control" id = "box3" name="box3" required  />
             </div>
-       
 
-       
+
+
             <label class="col-xs-3 control-label">Outside NY</label>
             <div class="col-xs-4 col-xs-offset-3">
                 <input class="form-control" id = "box4" name="box4" required  />
             </div>
-       
 
-        
+
+
             <div class="col-xs-9 col-xs-offset-3">
                 <!-- The message container -->
                 <div id="messageContainer"></div>
             </div>
-        
 
-      
+
+
             <label class="col-xs-3 control-label">Total</label>
             <div class="col-xs-4 col-xs-offset-3">
                 <input class="form-control" id = "totalfulltime" name="totalfulltime" type="number" readonly/>
             </div>
-       
 
-      
+
+
             <div class="col-xs-9 col-xs-offset-3">
                 <button id = "validate" type = "button" class="btn btn-primary">Validate</button>
             </div>
-       
+
 
 
 
     <h5>Please estimate the percent of PART TIME who live in each geography below (responses must add to between 0% - 100%).</h5>
-        
+
             <label class="col-xs-3 control-label">Within the City of Poughkeepsie</label>
             <div class="col-xs-4">
                 <input class="form-control" id = "box5" name="box5" required />
             </div>
-        
 
-        
+
+
             <label class="col-xs-3 control-label">In Dutchess Country, Outside of Poughkeepsie</label>
             <div class="col-xs-4 col-xs-offset-3">
                 <input class="form-control" id = "box6" name="box6" required />
             </div>
-        
 
-        
+
+
             <label class="col-xs-3 control-label">Outside of Dutchess County in New York State</label>
             <div class="col-xs-4 col-xs-offset-3">
                 <input class="form-control" id = "box7" name="box7"  required/>
             </div>
-        
 
-       
+
+
             <label class="col-xs-3 control-label">Outside NY</label>
             <div class="col-xs-4 col-xs-offset-3">
                 <input class="form-control" id = "box8" name="box8" required/>
             </div>
-        
 
-      
+
+
             <div class="col-xs-9 col-xs-offset-3">
                 <!-- The message container -->
                 <div id="messageContainer2"></div>
             </div>
-       
 
-       
+
+
             <label class="col-xs-3 control-label">Total</label>
             <div class="col-xs-4 col-xs-offset-3">
                 <input class="form-control" id = "totalparttime" name="totalparttime" type="number" readonly/>
             </div>
-        
 
-        
+
+
             <div class="col-xs-9 col-xs-offset-3">
                 <button id = "validate2" type = "button" class="btn btn-primary">Validate</button>
             </div>
@@ -308,7 +308,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["fulltimeemployees"]) 
     <h5> What is your estimated annual expense for Net Salary and Wages (Gross salary less tax)?</h5>
     <input class="form-control" id = "netsalarywages" name="netsalarywages" required/>
 
-    <h5> Please consider the different venders your organization uses to complete the following. If a vender type is not applicable to your 
+    <h5> Please consider the different venders your organization uses to complete the following. If a vender type is not applicable to your
             organization, please skip that vender and move on to the next. Please separate total venders located in Dutchess County from those
             located outside of the County. Again, use your best estimates. </h5>
         <br><br>
@@ -1146,7 +1146,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["fulltimeemployees"]) 
                 <input class="form-control" id = "" name="row41-4" type="number" style = "width: 50%" required />
             </td>
         </tr>
-        
+
         </tbody>
         </table>
 
@@ -1155,9 +1155,9 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["fulltimeemployees"]) 
 
         <br><br>
         <h4> THANK YOU FOR YOUR PARTICIPATION, RESULTS WILL BE AGGREGATED AND SHARED WITH ORGANIZATIONS AS SOON AS POSSIBLE </h4>
-        <input class="form-control" name="register" type="submit" value="Submit"> </input> 
+        <input class="form-control" name="register" type="submit" value="Submit"> </input>
         </form>
-        
+
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src = "percentchecker.js"></script>
