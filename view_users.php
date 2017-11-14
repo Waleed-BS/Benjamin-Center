@@ -27,11 +27,11 @@ mysql_close($conn);
   <h2>Sites</h2>
   </br>
 
-  <table border="1" cellpadding="4">
+  <table style="text-align: center;" border="1" cellpadding="4">
     <tr>
-      <th bgcolor="#CCCCCC"><strong>Site</strong></th>
+      <th bgcolor="#CCCCCC" style="text-align: center;"><strong>Site</strong></th>
       <!-- <th bgcolor="#CCCCCC"><strong># of Programs</strong></th> -->
-      <th bgcolor="#CCCCCC"><strong>Report</strong></th>
+      <th bgcolor="#CCCCCC" style="text-align: center;"><strong>Report</strong></th>
     </tr>
 
     <?php
@@ -39,7 +39,7 @@ mysql_close($conn);
     ?>
 
     <tr>
-      <td> <a href="view_programs.php?user_id=<?php echo $row['user_id']; ?> "> <?php echo $row['user_name']; ?> </a> </td>
+      <td> <a class="btn btn-outline-secondary"  href="view_programs.php?user_id=<?php echo $row['user_id']; ?> "> <?php echo $row['user_name']; ?> </a> </td>
     </tr>
 
     <?php
@@ -49,3 +49,17 @@ mysql_close($conn);
   </table>
   </br>
 </div>
+<style>
+th, td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+th {
+  background-color: #0F76A8;
+  color: white;
+  border: 1px solid black;
+  /*color: white;*/
+}
+
+</style>

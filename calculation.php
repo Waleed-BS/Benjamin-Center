@@ -172,3 +172,25 @@ function calculate() {
 }
 
 </script>
+<style>
+<style>
+th, td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+th {
+  background-color: #0F76A8;
+  color: white;
+  border: 1px solid black !important;
+  /*color: white;*/
+}
+td {
+  border: 1px solid black !important;
+  vertical-align: middle !important;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+
+</style>

@@ -48,16 +48,16 @@ if(!empty($_SESSION["program_name_error_session"]) ) {
     <br>
 
     <h3>Programs </h3>
-    <br>
+
   <!-- </form> -->
 
-  <table border="1" cellpadding="4">
+  <table style="text-align: center;" border="1" cellpadding="4">
 
     <tr>
-      <th bgcolor="#CCCCCC"><strong>Program Name</strong></th>
-      <th bgcolor="#CCCCCC"><strong>Link</strong></th>
-      <th bgcolor="#CCCCCC"><strong>Calculation</strong></th>
-      <th bgcolor="#CCCCCC"><strong>Report</strong></th>
+      <th style="text-align: center;"><strong>Program Name</strong></th>
+      <th style="text-align: center;"><strong>Link</strong></th>
+      <th style="text-align: center;"><strong>Calculation</strong></th>
+      <th style="text-align: center;"><strong>Report</strong></th>
     </tr>
 
     <?php
@@ -65,13 +65,13 @@ if(!empty($_SESSION["program_name_error_session"]) ) {
     ?>
 
     <tr>
-      <td> <a href="program.php?program_id=<?php echo $row['program_id']; ?> "> <?php echo $row["program_name"]; ?> </a> </td>
-      <td> <a href="mailto:?subject=SROI%20Survey&body=https://cs.newpaltz.edu/~n02575037/BenjaminCenter/program.php?program_id=<?php echo $row['program_id'];?>" > Email Link </a> </td>
+      <td> <a class="btn btn-outline-secondary" href="program.php?program_id=<?php echo $row['program_id']; ?> "> <?php echo $row["program_name"]; ?> </a> </td>
+      <td> <a class="btn btn-outline-info" href="mailto:?subject=SROI%20Survey&body=https://cs.newpaltz.edu/~n02575037/BenjaminCenter/program.php?program_id=<?php echo $row['program_id'];?>" > Email Link </a> </td>
         <!-- <td>
           <a href="mailto:?subject=SROI%20Survey&body=http://localhost/Benjamin_Center/program.php?program_id=<?php echo $row['program_id'];?>" > Email link</a>
         </td> -->
-      <td> <a href="calculation.php?program_id=<?php echo $row['program_id']; ?> "> View Calculation </a> </td>
-      <td> <a href="program_output.php?program_id=<?php echo $row['program_id']; ?>"> View Program Output </a> </td>
+      <td> <a class="btn btn-outline-info" href="calculation.php?program_id=<?php echo $row['program_id']; ?> "> View Calculation </a> </td>
+      <td> <a class="btn btn-outline-info" href="program_output.php?program_id=<?php echo $row['program_id']; ?>"> View Program Output </a> </td>
 
     </tr>
 
@@ -123,4 +123,18 @@ function validateData() {
 }
 
 </script>
+<style>
+th, td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+th {
+  background-color: #0F76A8;
+  color: white;
+  border: 1px solid black;
+  /*color: white;*/
+}
+
+</style>
 </html>
