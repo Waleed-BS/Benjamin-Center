@@ -47,8 +47,6 @@ if(!empty($_SESSION["program_name_error_session"]) ) {
     <h2>Site: <?php echo $user_name ?> </h2>
     <br>
 
-    <h3>Programs </h3>
-
   <!-- </form> -->
 
   <table style="text-align: center;" border="1" cellpadding="4">
@@ -88,7 +86,7 @@ if(!empty($_SESSION["program_name_error_session"]) ) {
 
   <form method="POST" action="./actions/create_program_action.php">
 
-  <label for="Program_name" class="col-3 ">New Program Name</label>
+  <label for="Program_name" class="col-3">New Program Name</label>
   <div class="form-group row">
     <div class="col-6">
       <input id="program_name" class="form-control" name="Program_name" type="text" placeholder="e.g. Visiting Nurse Services" >
