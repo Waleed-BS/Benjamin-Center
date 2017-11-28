@@ -319,7 +319,7 @@ function calculate() {
     return total + num;
   }
 
-  document.getElementById("total_adjusted_values").innerHTML = "Total adjusted values: <br>$" + adjusted_values.reduce(getSumOfAdjustedValues)
+  document.getElementById("total_adjusted_values").innerHTML = "$" + adjusted_values.reduce(getSumOfAdjustedValues)
   // alert(adjusted_values);
 
 }

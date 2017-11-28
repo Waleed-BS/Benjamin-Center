@@ -104,7 +104,7 @@ if( !isset($populations) && !isset($services) && !isset($annual_costs) && !isset
   </tr>
 
   <tr class="backgroundcolored">
-    <th rowspan=8 style="border: none"></th>
+    <th rowspan="<?php echo 4 + sizeof($populations); ?>" style="border: none"></th>
     <th style="text-align: center; vertical-align: middle; border-color: black; width: 1000px">SERVICE</th>
     <th style="text-align: center; vertical-align: middle; border-color: black; width: 3000px">IMPACT</th>
     <th style="text-align: center; width=200; vertical-align: middle; border-color: black; width: 2000px;">IMPACT VALUE</th>

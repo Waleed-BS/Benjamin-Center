@@ -13,9 +13,10 @@ if(!isset($_SESSION)) {
 $_SESSION["program_id_session"] = $program_id;
 ?>
 
-<div class="container" style = "background-color: white;">
+<div class="container" style = "background-color: white; margin-top: 3%">
 
 <form method="POST" name="Form" class='my-form' action="./actions/EIsurvey_action.php">
+    <br>
     <h3>The next set of questions asks about your employees. Please answer as best as possible, estimate when needed.</h3>
     <table class = "table table-condensed">
         <thead>
@@ -1006,7 +1007,8 @@ $_SESSION["program_id_session"] = $program_id;
 
         <br><br>
         <h4> THANK YOU FOR YOUR PARTICIPATION, RESULTS WILL BE AGGREGATED AND SHARED WITH ORGANIZATIONS AS SOON AS POSSIBLE </h4>
-        <input class="form-control" name="register" type="submit" value="Submit"> </input>
+        <br>
+        <input class="form-control btn btn-primary" name="register" type="submit" value="Submit"> </input>
         </form>
 
 </div>
