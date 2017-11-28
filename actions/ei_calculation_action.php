@@ -125,7 +125,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       '$program_id',
 
       '$vendorSpendingExpenditureCOUNTY', '$vendorSpendingOutputCOUNTY', '$vendorSpendingJobsCOUNTY',
-      '$vendorSpendingExpenditurNY', '$vendorSpendingOutputNY', '$vendorSpendingJobsNY',
+      '$vendorSpendingExpenditureNY', '$vendorSpendingOutputNY', '$vendorSpendingJobsNY',
 
       '$employeeSalaryExpenditureCOUNTY', '$employeeSalaryOutputCOUNTY', '$employeeSalaryJobsCOUNTY',
       '$employeeSalaryExpenditureNY', '$employeeSalaryOutputNY', '$employeeSalaryJobsNY',
