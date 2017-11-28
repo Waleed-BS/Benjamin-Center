@@ -48,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   echo "User is registered successfully\n";
   mysql_close($conn);
 
-  header("location: ../program_output.php?program_id=$program_id");
+  header("location: ../ei_calculation.php?program_id=$program_id");
 
 }
 

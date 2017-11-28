@@ -54,7 +54,7 @@ if(!empty($_SESSION["program_name_error_session"]) ) {
     <tr>
       <th style="text-align: center;"><strong>Program Name</strong></th>
       <th style="text-align: center; width: 25%"><strong>Program </strong></th>
-      <th style="text-align: center;"><strong>Link</strong></th>
+      <!-- <th style="text-align: center;"><strong>Link</strong></th> -->
       <th style="text-align: center;"><strong>Calculation</strong></th>
       <th style="text-align: center;"><strong>Report</strong></th>
     </tr>
@@ -67,16 +67,23 @@ if(!empty($_SESSION["program_name_error_session"]) ) {
       <td> <span> <?php echo $row["program_name"], "</br>" ?> </span> </td>
       <td>
 
-        <a style="width: 48%;" class="btn btn-outline-secondary" href="program.php?program_id=<?php echo $row['program_id']; ?> "> SROI </a>
-        <a style="width: 48%;" class="btn btn-outline-secondary" href="eisurvey.php?program_id=<?php echo $row['program_id']; ?> "> EI </a>
+        <a style="width: 51%; " class="btn btn-outline-secondary" href="program.php?program_id=<?php echo $row['program_id']; ?> "> SROI </a>
+        <a style="width: 46%; " class="btn btn-outline-secondary" href="eisurvey.php?program_id=<?php echo $row['program_id']; ?> "> EI </a>
+
+        <a style="width: 51%; font-size: 13px; font-weight: bold; margin-top: 15" class="btn btn-outline-info" href="mailto:?subject=SROI%20Survey&body=https://cs.newpaltz.edu/~n02575037/BenjaminCenter/program.php?program_id=<?php echo $row['program_id'];?>" > Email SROI Link </a>
+        <a style="width: 46%; font-size: 13px; font-weight: bold; margin-top: 15" class="btn btn-outline-info" href="mailto:?subject=SROI%20Survey&body=https://cs.newpaltz.edu/~n02575037/BenjaminCenter/eisurvey.php?program_id=<?php echo $row['program_id'];?>" > Email EI Link </a> </td>
 
        </td>
-      <td> <a class="btn btn-outline-info" href="mailto:?subject=SROI%20Survey&body=https://cs.newpaltz.edu/~n02575037/BenjaminCenter/program.php?program_id=<?php echo $row['program_id'];?>" > Email Link </a> </td>
-        <!-- <td>
-          <a href="mailto:?subject=SROI%20Survey&body=http://localhost/Benjamin_Center/program.php?program_id=<?php echo $row['program_id'];?>" > Email link</a>
-        </td> -->
-      <td> <a class="btn btn-outline-info" href="calculation.php?program_id=<?php echo $row['program_id']; ?> "> View Calculation </a> </td>
-      <td> <a class="btn btn-outline-info" href="program_output.php?program_id=<?php echo $row['program_id']; ?>"> View Program Output </a> </td>
+      <!-- <td>
+        <a style="width: 60%;" class="btn btn-outline-info" href="mailto:?subject=SROI%20Survey&body=https://cs.newpaltz.edu/~n02575037/BenjaminCenter/program.php?program_id=<?php echo $row['program_id'];?>" > Email SROI Link </a>
+        <a style="width: 60%;" class="btn btn-outline-info" href="mailto:?subject=SROI%20Survey&body=https://cs.newpaltz.edu/~n02575037/BenjaminCenter/eisurvey.php?program_id=<?php echo $row['program_id'];?>" > Email EI Link </a>
+      </td> -->
+      <td>
+        <a style="width: 81%; color: black;" class="btn btn-outline-warning" href="calculation.php?program_id=<?php echo $row['program_id']; ?>">View SROI Calculation</a>
+
+        <a style="width: 81%; color: black; margin-top: 10" class="btn btn-outline-warning" href="ei_calculation.php?program_id=<?php echo $row['program_id']; ?>">View EI Calculation</a>
+      </td>
+      <td> <a class="btn btn-outline-success" href="program_output.php?program_id=<?php echo $row['program_id']; ?>"> View Program Output </a> </td>
 
     </tr>
 
