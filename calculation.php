@@ -35,7 +35,7 @@ $totalJobsCOUNTY = $row["totalJobsCOUNTY"];
 $totalExpenditureNY = $row["totalExpenditureNY"];
 $totalOutputNY = $row["totalOutputNY"];
 $totalJobsNY = $row["totalJobsNY"];
-$num_of_rows = mysql_num_rows($retval);
+$num_of_rows_of_ei = mysql_num_rows($retval);
 
 $select_population_sql = "SELECT * FROM population WHERE belong_to = $program_id";
 $retval = mysql_query( $select_population_sql, $conn);
@@ -50,6 +50,7 @@ while( $process =  @mysql_fetch_assoc($retval) ) {
   $total_clients[$i] = $row[$i]['individual_served'];
   $impacts[$i] = $row[$i]['impact'];
   $likelihoods[$i] = $row[$i]['likelihood'];
+  $values[$i] = $row[$i]['value'];
   $i++;
 }
 
@@ -117,7 +118,11 @@ mysql_close($conn);
             <td style="font-size: 18"><?php echo $impacts[$i] ?></td>
             <td><?php echo $likelihoods[$i] . "%" ?></td>
             <td>
-              <input type="number" id="value" name="Value<?php echo $i; ?>" class="ValueClass form-control" rows="1" required></input>
+              <input type="number" id="value" name="Value<?php echo $i; ?>" class="ValueClass form-control" rows="1" required
+              <?php if ( isset($values[$i]) ) { ?>
+              value="<?php echo $values[$i]; ?>"
+              <?php } ?>
+              ></input>
             </td>
             <td>
               <label class="adjusted_valuesClass" id="adjusted_value<?php echo $i; ?>"></label>
@@ -186,50 +191,74 @@ mysql_close($conn);
       <tr>
         <td> Vendor Spending </td>
         <td>
-          <input type="number" id="vendorSpendingExpenditureCOUNTY"
-          name="VendorSpendingExpenditureCOUNTY"
-          class="form-control" rows="1"
-          required>
-          </input>
+          <input type="number" id="vendorSpendingExpenditureCOUNTY" name="VendorSpendingExpenditureCOUNTY" class="form-control" rows="1" required
+          <?php if ($num_of_rows_of_ei == 1) { ?>
+          value="<?php echo $vendorSpendingExpenditureCOUNTY  ?>"
+          <?php } ?>
+          ></input>
         </td>
         <td>
-          <input type="number" id="vendorSpendingOutputCOUNTY"
-          name="VendorSpendingOutputCOUNTY"
-          class="form-control" rows="1" required></input>
+          <input type="number" id="vendorSpendingOutputCOUNTY" name="VendorSpendingOutputCOUNTY" class="form-control" rows="1" required
+          <?php if ($num_of_rows_of_ei == 1) { ?>
+          value="<?php echo $vendorSpendingOutputCOUNTY ?>"
+          <?php } ?>
+          ></input>
         </td>
         <td>
-          <input type="number" id="vendorSpendingJobsCOUNTY" name="VendorSpendingJobsCOUNTY" class="form-control" rows="1" required></input>
+          <input type="number" id="vendorSpendingJobsCOUNTY" name="VendorSpendingJobsCOUNTY" class="form-control" rows="1" required
+          <?php if ($num_of_rows_of_ei == 1) { ?>
+          value="<?php echo $vendorSpendingJobsCOUNTY ?>"
+          <?php } ?>
+          ></input>
         </td>
         <td>
-          <input type="number" id="vendorSpendingExpenditureNY" name="VendorSpendingExpenditureNY" class="form-control" rows="1 required"></input>
+          <input type="number" id="vendorSpendingExpenditureNY" name="VendorSpendingExpenditureNY" class="form-control" rows="1" required
+          <?php if ($num_of_rows_of_ei == 1) { ?>
+          value="<?php echo $vendorSpendingExpenditureNY ?>"
+          <?php } ?>
+          ></input>
         </td>
         <td>
-          <input type="number" id="vendorSpendingOutputNY" name="VendorSpendingOutputNY" class="form-control" rows="1" required></input>
+          <input type="number" id="vendorSpendingOutputNY" name="VendorSpendingOutputNY" class="form-control" rows="1" required
+          <?php if ($num_of_rows_of_ei == 1) { ?>
+          value="<?php echo $vendorSpendingOutputNY ?>"
+          <?php } ?>
+          ></input>
         </td>
         <td>
-          <input type="number" id="vendorSpendingJobsNY" name="VendorSpendingJobsNY" class="form-control" rows="1" required></input>
+          <input type="number" id="vendorSpendingJobsNY" name="VendorSpendingJobsNY" class="form-control" rows="1" required
+          <?php if ($num_of_rows_of_ei == 1) { ?>
+          value="<?php echo $vendorSpendingJobsNY ?>"
+          <?php } ?>
+          ></input>
         </td>
       </tr>
 
       <tr style="background-color: white !important">
         <td> Employee Salary </td>
         <td>
-          <input type="number" id="employeeSalaryExpenditureCOUNTY" name="EmployeeSalaryExpenditureCOUNTY" class="form-control" rows="1" required></input>
+          <input type="number" id="employeeSalaryExpenditureCOUNTY" name="EmployeeSalaryExpenditureCOUNTY" class="form-control" rows="1" required
+          value="<?php echo $employeeSalaryExpenditureCOUNTY ?>"></input>
         </td>
         <td>
-          <input type="number" id="employeeSalaryOutputCOUNTY" name="EmployeeSalaryOutputCOUNTY" class="form-control" rows="1" required></input>
+          <input type="number" id="employeeSalaryOutputCOUNTY" name="EmployeeSalaryOutputCOUNTY" class="form-control" rows="1" required
+          value="<?php echo $employeeSalaryOutputCOUNTY ?>"></input>
         </td>
         <td>
-          <input type="number" id="employeeSalaryJobsCOUNTY" name="EmployeeSalaryJobsCOUNTY" class="form-control" rows="1" required></input>
+          <input type="number" id="employeeSalaryJobsCOUNTY" name="EmployeeSalaryJobsCOUNTY" class="form-control" rows="1" required
+          value="<?php echo $employeeSalaryJobsCOUNTY ?>"></input>
         </td>
         <td>
-          <input type="number" id="employeeSalaryExpenditureNY" name="EmployeeSalaryExpenditureNY" class="form-control" rows="1" required></input>
+          <input type="number" id="employeeSalaryExpenditureNY" name="EmployeeSalaryExpenditureNY" class="form-control" rows="1" required
+          value="<?php echo $employeeSalaryExpenditureNY ?>"></input>
         </td>
         <td>
-          <input type="number" id="employeeSalaryOutputNY" name="EmployeeSalaryOutputNY" class="form-control" rows="1" required></input>
+          <input type="number" id="employeeSalaryOutputNY" name="EmployeeSalaryOutputNY" class="form-control" rows="1" required
+          value="<?php echo $employeeSalaryOutputNY ?>"></input>
         </td>
         <td>
-          <input type="number" id="employeeSalaryJobsNY" name="EmployeeSalaryJobsNY" class="form-control" rows="1" required></input>
+          <input type="number" id="employeeSalaryJobsNY" name="EmployeeSalaryJobsNY" class="form-control" rows="1" required
+          value="<?php echo $employeeSalaryJobsNY ?>"></input>
         </td>
       </tr>
 

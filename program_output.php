@@ -185,7 +185,7 @@ if( !isset($populations) && !isset($services) && !isset($annual_costs) && !isset
       <tr>
         <!-- <td></td> -->
         <td class="backgroundcolored"> Total </td>
-        <td class="EI-data"> <?php echo "$", number_format($totalExpenditureNY) ?> </td>
+        <td class="EI-data"> <?php echo "$", number_format($totalExpenditureCOUNTY) ?> </td>
         <td class="EI-data"> <?php echo "$", number_format($totalOutputCOUNTY) ?> </td>
         <td class="EI-data"> <?php echo "$", number_format($totalJobsCOUNTY) ?> </td>
       </tr>
