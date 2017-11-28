@@ -22,7 +22,7 @@ $_SESSION["program_id_session"] = $program_id;
 // ~~ fetch program name to be displayed
 
 $program_name_sql =
-" SELECT program_name, owner, program_description FROM program WHERE program_id = $program_id";
+" SELECT program_name, owner, program_description, population_served FROM program WHERE program_id = $program_id";
 
 $retval = mysql_query($program_name_sql, $conn);
 
@@ -30,6 +30,7 @@ $row = mysql_fetch_array($retval, MYSQL_ASSOC);
 
 $program_name = $row['program_name'];
 $program_description = $row["program_description"];
+$population_served = $row["population_served"];
 // used to fetch user name below + to return to programs after submitting
 $owner = $row['owner'];
 
@@ -80,7 +81,24 @@ $program_edit = $row["editProgram"];
       <?php } ?>
     </div>
 
-    <!-- <p>Below, please think of the populations you serve (e.g. mothers, infants, homeless etc.) You will be asked several questions regarding each population you serve.</p> -->
+    <p>Below, please think of the populations you serve (e.g. mothers, infants, homeless etc.) You will be asked several questions regarding each population you serve.</p>
+    <div class="form-group">
+      <label for="population_served">Population (please briefly describe)</label>
+
+      <?php if( !empty($population_served) ) { ?>
+        <input type="text" placeholder=" e.g. homeless adults"
+        class="form-control" id="population_served" name="Population_served" rows="3" value="<?php echo $population_served; ?>"></input>
+      <?php } else { ?>
+        <input type="text" placeholder=" e.g. homeless adults"
+        class="form-control" id="population_served" name="Population_served" rows="3"></input>
+      <?php } ?>
+
+    </div>
+
+    <p>For Population above, please list the services you provide (e.g. meals. vaccinations, tansportation, job placement etc.)
+     If there are less than siz, leave those spaces blank. If there are more than 6 </p>
+
+
     <div id="populationtable1"></div>
     <!-- <div id="populationtable2"></div> -->
 
@@ -127,6 +145,8 @@ function validateData() {
 
   let program_name = document.getElementById("program_name").value;
   let description = document.getElementById("description").value;
+
+  let population_served = document.getElementById("population_served").value;
 
   let population1 = document.getElementById("population1").value;
   let service1 = document.getElementById("service1").value;
@@ -180,6 +200,12 @@ function validateData() {
     event.preventDefault();
     return false;
   }
+  if( population_served == "") {
+    alert("Description of population input is required");
+    event.preventDefault();
+    return false;
+  }
+
   if( population1 != "" || service1 != "" || annualcost1 != "" || totalclients1 != "" || impact1 != "" || likelihood1 != "" ) {
     if( population1 == "" || service1 == "" || annualcost1 == "" || totalclients1 == "" || impact1 == "" || likelihood1 == "" ) {
       alert("Service 1 is missing an input");

@@ -31,7 +31,7 @@ $(document).ready(function(){
         var sum = parseInt(box5) + parseInt(box6) + parseInt(box7) + parseInt(box8);
         //console.log(sum,"Sum of vals");
         if(sum <= 100 && sum >= 0){
-            $("#totalfulltime").val(sum);
+            $("#totalparttime").val(sum);
         }
         else if (sum > 100 || sum < 0){
             $("#messageContainer2").append("<h5 style = 'color:red;'>Sum of values must be within 0-100%</h5>");

@@ -1,6 +1,5 @@
 <?php
 include("index.php");
-include("session.php");
 include("config.php");
 
 $program_id = $_GET["program_id"];
@@ -11,10 +10,35 @@ if(!isset($_SESSION)) {
 
 $_SESSION["program_id_session"] = $program_id;
 
+$select_eisurvey_calculation_sql = "SELECT * FROM eisurvey_calculation WHERE belong_to = '$program_id'";
+$retval = mysql_query( $select_eisurvey_calculation_sql, $conn );
+$row = mysql_fetch_array($retval, MYSQL_ASSOC);
+$vendorSpendingExpenditureCOUNTY = $row["vendorSpendingExpenditureCOUNTY"];
+$vendorSpendingOutputCOUNTY = $row["vendorSpendingOutputCOUNTY"];
+$vendorSpendingJobsCOUNTY = $row["vendorSpendingJobsCOUNTY"];
+
+$vendorSpendingExpenditureNY = $row["vendorSpendingExpenditureNY"];
+$vendorSpendingOutputNY = $row["vendorSpendingOutputNY"];
+$vendorSpendingJobsNY = $row["vendorSpendingJobsNY"];
+
+$employeeSalaryExpenditureCOUNTY = $row["employeeSalaryExpenditureCOUNTY"];
+$employeeSalaryOutputCOUNTY = $row["employeeSalaryOutputCOUNTY"];
+$employeeSalaryJobsCOUNTY = $row["employeeSalaryJobsCOUNTY"];
+
+$employeeSalaryExpenditureNY = $row["employeeSalaryExpenditureNY"];
+$employeeSalaryOutputNY = $row["employeeSalaryOutputNY"];
+$employeeSalaryJobsNY = $row["employeeSalaryJobsNY"];
+
+$totalExpenditureCOUNTY = $row["totalExpenditureCOUNTY"];
+$totalOutputCOUNTY = $row["totalOutputCOUNTY"];
+$totalJobsCOUNTY = $row["totalJobsCOUNTY"];
+$totalExpenditureNY = $row["totalExpenditureNY"];
+$totalOutputNY = $row["totalOutputNY"];
+$totalJobsNY = $row["totalJobsNY"];
+$num_of_rows = mysql_num_rows($retval);
+
 $select_population_sql = "SELECT * FROM population WHERE belong_to = $program_id";
-
 $retval = mysql_query( $select_population_sql, $conn);
-
 // fetch multiple rows of populations data
 $i = 0;
 while( $process =  @mysql_fetch_assoc($retval) ) {
@@ -66,14 +90,14 @@ mysql_close($conn);
     <table class="table table-bordered" style="text-align: center;">
     <thead>
       <tr>
-        <th style="text-align: center;">Population</th>
-        <th style="text-align: center;">Service</th>
-        <th style="text-align: center;">Annual Cost</th>
-        <th style="text-align: center;"># Individuals Served</th>
-        <th style="text-align: center;">Impact</th>
-        <th style="text-align: center;">Likelihood Of Outcome</th>
-        <th style="text-align: center;">Value</th>
-        <th style="text-align: center;">Adjusted Value</th>
+        <th style="text-align: center; vertical-align: middle; font-weight: bold">Population</th>
+        <th style="text-align: center; vertical-align: middle; font-weight: bold">Service</th>
+        <th style="text-align: center; vertical-align: middle; font-weight: bold; width: 160">Annual Cost</th>
+        <th style="text-align: center; vertical-align: middle; font-weight: bold">Individuals Served</th>
+        <th style="text-align: center; vertical-align: middle; font-weight: bold; width: 110%">Impact</th>
+        <th style="text-align: center; font-weight: bold">Likelihood of Outcome</th>
+        <th style="text-align: center; vertical-align: middle; font-weight: bold">Value</th>
+        <th style="text-align: center; vertical-align: middle; font-weight: bold">Adjusted Value</th>
       </tr>
     </thead>
     <tbody>
@@ -88,12 +112,12 @@ mysql_close($conn);
 
             <td><?php echo $populations[$i] ?></td>
             <td><?php echo $services[$i] ?></td>
-            <td><?php echo "$" . $annual_costs[$i] ?></td>
-            <td><?php echo $total_clients[$i] ?></td>
-            <td><?php echo $impacts[$i] ?></td>
+            <td><?php echo "$" . number_format($annual_costs[$i]) ?></td>
+            <td><?php echo number_format($total_clients[$i]) ?></td>
+            <td style="font-size: 18"><?php echo $impacts[$i] ?></td>
             <td><?php echo $likelihoods[$i] . "%" ?></td>
             <td>
-              <input type="number" id="value" name="Value<?php echo $i; ?>" class="ValueClass form-control" rows="1"></input>
+              <input type="number" id="value" name="Value<?php echo $i; ?>" class="ValueClass form-control" rows="1" required></input>
             </td>
             <td>
               <label class="adjusted_valuesClass" id="adjusted_value<?php echo $i; ?>"></label>
@@ -108,19 +132,19 @@ mysql_close($conn);
 
       <tr>
 
-        <td><?php echo "" ?> </td>
-        <td><?php echo "" ?></td>
+        <td> Total </td>
+        <td>  </td>
         <!--  sum all existed elements of array -->
         <?php if(isset($annual_costs)) { ?>
-          <td><?php echo "Total cost:<br>$" . array_sum($annual_costs) ?></td>
+          <td><?php echo "$" . number_format(array_sum($annual_costs)) ?></td>
         <?php } ?>
         <?php if(isset($total_clients)) { ?>
-          <td><?php echo "Total clients: <br>" . array_sum($total_clients) ?></td>
+          <td><?php echo number_format(array_sum($total_clients)) ?></td>
         <?php } ?>
         <td><?php echo "" ?></td>
         <td></td>
         <td>
-          <input class="btn btn-primary" value="Calculate" type="submit" onClick="calculate()"></input>
+          <input class="btn btn-info" value="Calculate" type="submit" onClick="calculate()"></input>
         </td>
         <td><label id="total_adjusted_values"> </label></td>
 
@@ -128,10 +152,139 @@ mysql_close($conn);
     </tbody>
     </table>
 
-    <input name="SubmitButton" class="form-control" value="Submit" type="submit"></input>
+    <input id="submitSROI" name="SubmitSROI" class="btn btn-primary form-control" value="Submit" type="submit"></input>
 
   </form>
 
+  <form method="POST" action="./actions/ei_calculation_action.php">
+
+    <table class="table table-bordered" style="text-align: center; margin-top: 60;">
+    <thead style="margin-top: 30;">
+
+      <tr >
+        <th style="vertical-align: middle; font-weight: bold"> Economic Impact </th>
+        <th style="vertical-align: middle; font-weight: bold"> <u> Dutchess County </u> </th>
+        <th> </th>
+        <th> </th>
+        <th style="vertical-align: middle; font-weight: bold"> <u> New York </u> </th>
+        <th> </th>
+        <th style="text-align: center;"> </th>
+      </tr>
+      <tr>
+        <th style="text-align: center; width: 270;">Include on Output? Yes/No</th>
+        <th style="text-align: center;">Expenditure</th>
+        <th style="text-align: center; ">Output</th>
+        <th style="text-align: center;">Jobs</th>
+        <th style="text-align: center;">Expenditure</th>
+        <th style="text-align: center;">Output</th>
+        <th style="text-align: center;">Jobs</th>
+      </tr>
+
+    </thead>
+    <tbody>
+
+      <tr>
+        <td> Vendor Spending </td>
+        <td>
+          <input type="number" id="vendorSpendingExpenditureCOUNTY"
+          name="VendorSpendingExpenditureCOUNTY"
+          class="form-control" rows="1"
+          required>
+          </input>
+        </td>
+        <td>
+          <input type="number" id="vendorSpendingOutputCOUNTY"
+          name="VendorSpendingOutputCOUNTY"
+          class="form-control" rows="1" required></input>
+        </td>
+        <td>
+          <input type="number" id="vendorSpendingJobsCOUNTY" name="VendorSpendingJobsCOUNTY" class="form-control" rows="1" required></input>
+        </td>
+        <td>
+          <input type="number" id="vendorSpendingExpenditureNY" name="VendorSpendingExpenditureNY" class="form-control" rows="1 required"></input>
+        </td>
+        <td>
+          <input type="number" id="vendorSpendingOutputNY" name="VendorSpendingOutputNY" class="form-control" rows="1" required></input>
+        </td>
+        <td>
+          <input type="number" id="vendorSpendingJobsNY" name="VendorSpendingJobsNY" class="form-control" rows="1" required></input>
+        </td>
+      </tr>
+
+      <tr style="background-color: white !important">
+        <td> Employee Salary </td>
+        <td>
+          <input type="number" id="employeeSalaryExpenditureCOUNTY" name="EmployeeSalaryExpenditureCOUNTY" class="form-control" rows="1" required></input>
+        </td>
+        <td>
+          <input type="number" id="employeeSalaryOutputCOUNTY" name="EmployeeSalaryOutputCOUNTY" class="form-control" rows="1" required></input>
+        </td>
+        <td>
+          <input type="number" id="employeeSalaryJobsCOUNTY" name="EmployeeSalaryJobsCOUNTY" class="form-control" rows="1" required></input>
+        </td>
+        <td>
+          <input type="number" id="employeeSalaryExpenditureNY" name="EmployeeSalaryExpenditureNY" class="form-control" rows="1" required></input>
+        </td>
+        <td>
+          <input type="number" id="employeeSalaryOutputNY" name="EmployeeSalaryOutputNY" class="form-control" rows="1" required></input>
+        </td>
+        <td>
+          <input type="number" id="employeeSalaryJobsNY" name="EmployeeSalaryJobsNY" class="form-control" rows="1" required></input>
+        </td>
+      </tr>
+
+      <tr>
+        <td> Total </td>
+        <td>
+          <input type="number" id="totalExpenditureCOUNTY"
+          name="TotalExpenditureCOUNTY"
+          class="form-control" rows="1"
+          >
+          </input>
+        </td>
+        <td>
+          <input type="number" id="totalOutputCOUNTY"
+          name="TotalOutputCOUNTY"
+          class="form-control" rows="1">
+          </input>
+        </td>
+        <td>
+          <input type="number" id="totalJobsCOUNTY"
+          name="TotalJobsCOUNTY"
+          class="form-control" rows="1">
+          </input>
+        </td>
+        <td>
+          <input type="number" id="totalExpenditureNY"
+          name="TotalExpenditureNY"
+          class="form-control" rows="1">
+          </input>
+        </td>
+        <td>
+          <input type="number" id="totalOutputNY"
+          name="TotalOutputNY"
+          class="form-control" rows="1">
+          </input>
+        </td>
+        <td>
+          <input type="number" id="totalJobsNY"
+          name="TotalJobsNY"
+          class="form-control" rows="1">
+          </input>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+
+    <label for="includdeTotal">Include Total to Program Output</label>
+    <br>
+    <input class="include-total" id="includeTotal" name="IncludeTotal" type="radio" value="Yes"> Yes</input>
+    <input class="include-total" id="includeTotal" name="IncludeTotal" type="radio" value="No"> No</input>
+    <br>
+    <br>
+    <input id="submitEI" name="SubmitEI" class="btn btn-primary form-control" value="Submit" type="submit"></input>
+
+  </form>
   <br>
 
 </div>
@@ -175,22 +328,32 @@ function calculate() {
 <style>
 <style>
 th, td {
-  padding: 10px;
-  border: 1px solid black;
+  /*padding: 10px;
+  border: 1px solid black;*/
 }
 
 th {
-  background-color: #0F76A8;
-  color: white;
+  background-color: #FFAE5D;
+  color: black;
   border: 1px solid black !important;
   /*color: white;*/
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20;
+  font-weight: 55;
+  line-height: 25px;
+  /*margin: 0 0 0px;*/
+  text-align: center;
+  vertical-align: middle;
 }
 td {
   border: 1px solid black !important;
   vertical-align: middle !important;
+  font-size: 18;
 }
 tr:nth-child(even) {
   background-color: #f2f2f2
 }
+
+
 
 </style>

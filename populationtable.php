@@ -7,7 +7,7 @@
     </div> -->
     <tr>
       <th>Population</th>
-      <th>Service</th>
+      <th style="width: 280">Service</th>
       <th>Please enter <br /> approximate annual cost <br /> for each service <br /><br />Whole dollar amount</th>
       <th>Please enter <br /> approximate # of <br /> individuals serviced <br /> annually by this <br /> service<br /><br />Total Clients</th>
       <th>Please state expected <br /> impact from service <br /> (e.g. reduced <br /> hospitalizations, <br /> decreased hunger etc.)<br /><br />Impact</th>
@@ -28,7 +28,7 @@
       <td>
         <div class="form-group">
           <label for="service1">Service 1</label>
-          <textarea class="form-control" id="service1" name="Service1" placeholder="e.g. Immunization or Narcan Program" rows="4" ></textarea>
+          <textarea class="form-control" id="service1" name="Service1" placeholder="e.g. Immunization or Narcan Program" rows="2" ></textarea>
         </div>
       </td>
       <td>
@@ -66,7 +66,7 @@
       <td>
         <div class="form-group">
           <label for="service2">Service 2</label>
-          <textarea class="form-control" id="service2" name="Service2" rows="4" ></textarea>
+          <textarea class="form-control" id="service2" name="Service2" rows="2" ></textarea>
         </div>
       </td>
       <td>
@@ -104,7 +104,7 @@
       <td>
         <div class="form-group">
           <label for="service3">Service 3</label>
-          <textarea class="form-control" id="service3" name="Service3" rows="4" ></textarea>
+          <textarea class="form-control" id="service3" name="Service3" rows="2" ></textarea>
         </div>
       </td>
       <td>
@@ -142,7 +142,7 @@
       <td>
         <div class="form-group">
           <label for="service4">Service 4</label>
-          <textarea class="form-control" id="service4" name="Service4" rows="4" ></textarea>
+          <textarea class="form-control" id="service4" name="Service4" rows="2" ></textarea>
         </div>
       </td>
       <td>
@@ -180,7 +180,7 @@
       <td>
         <div class="form-group">
           <label for="service5">Service 5</label>
-          <textarea class="form-control" id="service5" name="Service5" rows="4" ></textarea>
+          <textarea class="form-control" id="service5" name="Service5" rows="2" ></textarea>
         </div>
       </td>
       <td>
@@ -218,7 +218,7 @@
       <td>
         <div class="form-group">
           <label for="service6">Service 6</label>
-          <textarea class="form-control" id="service6" name="Service6" rows="4" ></textarea>
+          <textarea class="form-control" id="service6" name="Service6" rows="2" ></textarea>
         </div>
       </td>
       <td>

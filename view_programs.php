@@ -53,6 +53,7 @@ if(!empty($_SESSION["program_name_error_session"]) ) {
 
     <tr>
       <th style="text-align: center;"><strong>Program Name</strong></th>
+      <th style="text-align: center; width: 25%"><strong>Program </strong></th>
       <th style="text-align: center;"><strong>Link</strong></th>
       <th style="text-align: center;"><strong>Calculation</strong></th>
       <th style="text-align: center;"><strong>Report</strong></th>
@@ -63,7 +64,13 @@ if(!empty($_SESSION["program_name_error_session"]) ) {
     ?>
 
     <tr>
-      <td> <a class="btn btn-outline-secondary" href="program.php?program_id=<?php echo $row['program_id']; ?> "> <?php echo $row["program_name"]; ?> </a> </td>
+      <td> <span> <?php echo $row["program_name"], "</br>" ?> </span> </td>
+      <td>
+
+        <a style="width: 48%;" class="btn btn-outline-secondary" href="program.php?program_id=<?php echo $row['program_id']; ?> "> SROI </a>
+        <a style="width: 48%;" class="btn btn-outline-secondary" href="eisurvey.php?program_id=<?php echo $row['program_id']; ?> "> EI </a>
+
+       </td>
       <td> <a class="btn btn-outline-info" href="mailto:?subject=SROI%20Survey&body=https://cs.newpaltz.edu/~n02575037/BenjaminCenter/program.php?program_id=<?php echo $row['program_id'];?>" > Email Link </a> </td>
         <!-- <td>
           <a href="mailto:?subject=SROI%20Survey&body=http://localhost/Benjamin_Center/program.php?program_id=<?php echo $row['program_id'];?>" > Email link</a>

@@ -2,14 +2,6 @@
 <?php
 include("../config.php");
 
-$program_descriptionError = "";
-$populationError = "";
-$serviceError = "";
-$annual_costError = "";
-$total_clientsError = "";
-$impactError = "";
-$likelihoodError = "";
-
 // ~~ SESSION VARIABLES
 if(!isset($_SESSION)) {
   session_start();
@@ -402,7 +394,13 @@ if( $_SERVER["REQUEST_METHOD"] == "POST"
 
   $program_name = $_POST["Program_name"];
   $program_description = $_POST["Description"];
-  $set_program_name_and_description_sql = "UPDATE program SET program_name = '$program_name', program_description='$program_description' WHERE program_id = '$program_id'";
+  $population_served = $_POST["Population_served"];
+  $set_program_name_and_description_sql = 
+  "UPDATE program SET
+  program_name = '$program_name',
+  program_description='$program_description',
+  population_served='$population_served'
+  WHERE program_id = '$program_id'";
   $retval = mysql_query( $set_program_name_and_description_sql, $conn);
   mysql_close($conn);
 
