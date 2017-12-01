@@ -529,7 +529,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 
     echo "Entered data successfully\n";
     mysql_close($conn);
-    header("location: ../view_programs.php?user_id=$program_id");
+    header("location: ../program_output.php?program_id=$program_id");
   }
 }
 

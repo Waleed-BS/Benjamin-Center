@@ -16,7 +16,7 @@ $retval = mysql_query($user_name_sql, $conn);
 $row = mysql_fetch_array($retval, MYSQL_ASSOC);
 $user_name = $row["user_name"];
 
-$programs_sql = "SELECT program_name, program_id FROM program WHERE owner = $user_id";
+$programs_sql = "SELECT program_name, program_id, owner FROM program WHERE owner = $user_id";
 
 // using inner join to fetch programs from owner
 // " SELECT u.*, p.*
@@ -84,6 +84,12 @@ if(!empty($_SESSION["program_name_error_session"]) ) {
         <a style="width: 81%; color: black; margin-top: 10" class="btn btn-outline-warning" href="ei_calculation.php?program_id=<?php echo $row['program_id']; ?>">View EI Calculation</a>
       </td>
       <td> <a class="btn btn-outline-success" href="program_output.php?program_id=<?php echo $row['program_id']; ?>"> View Program Output </a> </td>
+
+      <form style="marging: 0" method="POST" action="./actions/remove_program_action.php?user_id=<?php echo $row['owner'] ?>">
+        <td style="border-color: white;">
+          <input type="submit" style="width: 100px;" class="btn btn-danger" value="Delete"></input>
+        </td>
+      </form>
 
     </tr>
 

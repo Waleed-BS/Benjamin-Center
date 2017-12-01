@@ -17,6 +17,7 @@ $i = 0;
 while( $process =  @mysql_fetch_assoc($retval) ) {
   $row[$i] = $process;
 
+  $populations_id[$i] = $row[$i]['population_id'];
   $populations[$i] = $row[$i]['population'];
   $services[$i] = $row[$i]['service'];
   $annual_costs[$i] = $row[$i]['annual_cost'];
@@ -24,7 +25,9 @@ while( $process =  @mysql_fetch_assoc($retval) ) {
   $impacts[$i] = $row[$i]['impact'];
   $likelihoods[$i] = $row[$i]['likelihood'];
   $values[$i] = $row[$i]['value'];
+
   $i++;
+
 }
 
 $_SESSION["populations_session"] = $populations;
@@ -100,6 +103,13 @@ mysql_close($conn);
             <td>
               <label class="adjusted_valuesClass" id="adjusted_value<?php echo $i; ?>"></label>
             </td>
+
+            <form style="marging: 0" method="POST" action="./actions/remove_SROI_action.php?population_id=<?php echo $populations_id[$i]; ?>">
+              <td style="border-color: white;">
+                <input type="submit" style="width: 100px;" class="btn btn-danger" value="Delete"></input>
+              </td>
+            </form>
+
           </tr>
           <?php
         }
