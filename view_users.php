@@ -24,11 +24,7 @@ mysql_close($conn);
 ?>
 
 <div class = "container" style = "background-color: white; margin-top: 3%;">
-
-  </br>
-  <h2>Sites</h2>
-  </br>
-
+  <br>
   <table style="text-align: center;" border="1" cellpadding="4">
     <tr>
       <th bgcolor="#CCCCCC" style="text-align: center;"><strong>Site</strong></th>
@@ -75,6 +71,7 @@ th {
   color: white;
   border: 1px solid black;
   /*color: white;*/
+  font-size: 22px;
 }
 
 </style>

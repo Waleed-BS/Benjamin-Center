@@ -145,7 +145,7 @@ if( !isset($populations) && !isset($services) && !isset($annual_costs) && !isset
       <tr style="color: white;">
         <!-- <td class="backgroundcolored" style="border-right: none; border-top: none; border-left: solid black 1px; border-bottom: solid black 1px;"></td> -->
         <td style="border: none; background-color: #E69138; border-bottom: solid black 1px;"></td>
-        <td style="border-top: none; border-left: none; border-right: none; vertical-align: middle; background-color: #E69138; border-bottom: solid black 1px; font-weight: bold; font-size: 23">SROI RATIO</td>
+        <td style="border-top: none; border-left: none; border-right: none; vertical-align: middle; background-color: #E69138; border-bottom: solid black 1px; font-weight: bold; font-size: 23; text-align: right;">SROI RATIO</td>
         <td style="border: none; width: 300px; vertical-align: middle; background-color: #E69138; border-bottom: solid black 1px; font-weight: bold; font-size: 23"><?php echo $SROI_ratio . " : 1"?></td>
       </tr>
 </table>
@@ -166,7 +166,7 @@ if( !isset($populations) && !isset($services) && !isset($annual_costs) && !isset
         </th>
       </tr>
       <tr>
-        <td class="dutchess-ny" rowspan=3> <u> Dutchess County </u> </td>
+        <td class="dutchess-ny" rowspan=3> DUTCHESS COUNTY </td>
         <td class="backgroundcolored"> Vendor Spending </td>
         <td class="EI-data"> <?php echo "$", number_format($vendorSpendingExpenditureCOUNTY) ?> </td>
         <td class="EI-data">  <?php echo "$", number_format($vendorSpendingOutputCOUNTY) ?> </td>
@@ -200,7 +200,7 @@ if( !isset($populations) && !isset($services) && !isset($annual_costs) && !isset
       <?php } ?>
 
       <tr>
-        <td class="dutchess-ny" rowspan=3> <u> NEW YORK STATE </u> </td>
+        <td class="dutchess-ny" rowspan=3> NEW YORK STATE </td>
         <td class="backgroundcolored"> Vendor Spending </td>
         <td class="EI-data"> <?php echo "$", number_format($vendorSpendingExpenditureNY) ?> </td>
         <td class="EI-data">  <?php echo "$", number_format($vendorSpendingOutputNY) ?> </td>
@@ -307,7 +307,7 @@ table.one{
   vertical-align: middle !important;
   width: 2000px;
   border-color: black !important;
-  font-size: 20;
+  font-size: 18;
   line-height: 25px !important;
 }
 
@@ -351,6 +351,8 @@ table.one{
   border: 1px solid black !important;
   vertical-align: middle !important;
   font-weight: bold;
+  text-align: right;
+  margin-top: 200px;
 }
 
 tr:nth-child(even) {

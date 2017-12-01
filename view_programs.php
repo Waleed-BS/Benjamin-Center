@@ -151,6 +151,7 @@ th {
   background-color: #0F76A8;
   color: white;
   border: 1px solid black;
+  font-size: 22px;
   /*color: white;*/
 }
 
