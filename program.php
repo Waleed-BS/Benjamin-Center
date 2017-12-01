@@ -125,22 +125,6 @@ $(function(){
 //   });
 // });
 
-
-// function foo() {
-//   var likelihood1 = document.getElementById('likelihood1').value;
-//
-//   // alert("foo");
-//   if( likelihood1.charAt(0) = '%' ){
-//   return alert("first");
-//   }
-//   if( likelihood1.slice(1) = '%') {
-//    return alert("last");
-//   }
-//
-// }
-
-
-
 function validateData() {
 
   let program_name = document.getElementById("program_name").value;
@@ -254,7 +238,7 @@ function validateData() {
     }
   }
 
-  alert("Data entered successfully.")
+  alert("Data entered successfully.\nServices input are resetted.\nInput more services if available")
   // ~~~~~~~ todo: a fucntion to animate to the first error message
 
   // if( (population1 != "") || (service1 != "") || (impact1 != "") ) {
