@@ -1010,7 +1010,8 @@ $_SESSION["program_id_session"] = $program_id;
         <br>
         <input class="form-control btn btn-primary" name="register" type="submit" value="Submit"> </input>
         </form>
-
+        <br>
 </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src = "percentchecker.js"></script>

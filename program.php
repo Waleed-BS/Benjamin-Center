@@ -108,7 +108,7 @@ $program_edit = $row["editProgram"];
     </div>
 
   </form>
-
+  <br>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -238,7 +238,7 @@ function validateData() {
     }
   }
 
-  alert("Data entered successfully.\nServices input are resetted.\nInput more services if available")
+  alert("Data entered successfully.\n\nService inputs are resetted. You are now able to enter more services!")
   // ~~~~~~~ todo: a fucntion to animate to the first error message
 
   // if( (population1 != "") || (service1 != "") || (impact1 != "") ) {

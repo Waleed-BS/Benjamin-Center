@@ -54,7 +54,7 @@ mysql_close($conn);
 
 ?>
 
-<div class="container" style="background-color: white; margin-top: 3%;">
+<div class="container-fluid" style="background-color: white; margin-top: 3%;">
 
   </br>
   <h2>Site: <?php echo $user_name ?></h2>
@@ -104,9 +104,9 @@ mysql_close($conn);
               <label class="adjusted_valuesClass" id="adjusted_value<?php echo $i; ?>"></label>
             </td>
 
-            <form style="marging: 0" method="POST" action="./actions/remove_SROI_action.php?population_id=<?php echo $populations_id[$i]; ?>">
-              <td style="border-color: white;">
-                <input type="submit" style="width: 100px;" class="btn btn-danger" value="Delete"></input>
+            <form style="marging: 0; border-color: transparent !important;" method="POST" action="./actions/remove_SROI_action.php?population_id=<?php echo $populations_id[$i]; ?>">
+              <td style="border-color: transparent !important; background-color: white  !important;">
+                <input type="submit" class="btn btn-danger" value="Delete"></input>
               </td>
             </form>
 
@@ -145,7 +145,7 @@ mysql_close($conn);
   </form>
 
   <br>
-
+  <br>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -189,6 +189,16 @@ function calculate() {
 th, td {
   /*padding: 10px;
   border: 1px solid black;*/
+}
+.container-fluid {
+  max-width: 80%;
+}
+
+.btn.btn-danger{
+  /*max-height: 100%;*/
+  width: 100px;
+  /*font-align: center;*/
+  /*max-width: 100%;*/
 }
 
 th {
