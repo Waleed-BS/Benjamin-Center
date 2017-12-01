@@ -11,9 +11,29 @@ if(!isset($_SESSION)) {
 }
 
 $_SESSION["program_id_session"] = $program_id;
+
+$select_program_sql =
+" SELECT owner, program_name FROM program WHERE program_id = $program_id";
+$retval = mysql_query($select_program_sql, $conn);
+$row = mysql_fetch_array($retval, MYSQL_ASSOC);
+$owner = $row["owner"];
+$program_name = $row["program_name"];
+
+$user_name_sql =
+" SELECT user_name FROM user WHERE user_id = " . $owner;
+$retval = mysql_query($user_name_sql, $conn);
+$row = mysql_fetch_array($retval, MYSQL_ASSOC);
+$user_name = $row["user_name"];
+
 ?>
 
 <div class="container" style = "background-color: white; margin-top: 3%">
+
+</br>
+<h2>Site: <?php echo $user_name ?></h2>
+</br>
+
+<h4>Program Name: <?php echo $program_name ?> </h4>
 
 <form method="POST" name="Form" class='my-form' action="./actions/EIsurvey_action.php">
     <br>
